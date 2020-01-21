@@ -8,7 +8,13 @@ Cisco Catalyst 9300 running IOS XE 17.1.1 with Docker AppHosting, using Remote D
 	SSD-120G USB Storage
 	IOS XE 17.1.1 Software
 	DNA Advantage License
-	
+
+Review the configuration guide:
+
+https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/prog/configuration/171/b_171_programmability_cg/application_hosting.html
+
+
+
 The show inventory command can be used to confirm the hardware and SSD:
 
 
@@ -25,7 +31,8 @@ The show version can be used to confirm the version:
 
 # 	2. The Docker Container
 
-Get the Docker container
+Get the Docker container from https://hub.docker.com/r/danielguerra/alpine-xfce4-xrdp/
+
 
 	$ docker run -d --shm-size 1g --name rdp -p 3389:3389 danielguerra/alpine-xfce4-xrdp
 
