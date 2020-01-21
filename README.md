@@ -3,10 +3,6 @@ Cisco Catalyst 9300 running IOS XE 17.1.1 with Docker AppHosting, using Remote D
 
 
 
-
-
-
-
 # 1. Prerequisites IOS XE 17.1.1 + SSD
 	Cisco Catalyst 9300
 	SSD-120G USB Storage
@@ -14,19 +10,9 @@ Cisco Catalyst 9300 running IOS XE 17.1.1 with Docker AppHosting, using Remote D
 	DNA Advantage License
 	
 The show inventory command can be used to confirm the hardware and SSD:
-	
-	C9300#show inventory
-	NAME: "c93xx Stack", DESCR: "c93xx Stack"
-	PID: C9300-24P         , VID: V02  , SN: FCW2241DHBN
-	
-	NAME: "Switch 1", DESCR: "C9300-24P"
-	PID: C9300-24P         , VID: V02  , SN: FCW2241DHBN
-	
-	NAME: "Switch 1 - Power Supply A", DESCR: "Switch 1 - Power Supply A"
-	PID: PWR-C1-715WAC     , VID: V02  , SN: DCA2232G1Y7
-	
-	NAME: "usbflash1", DESCR: "usbflash1-1"
-	PID: SSD-120G          , VID: STP230818QL, SN: V01
+
+
+![./c9kwireshark-show-inv.png](./c9kwireshark-show-inv.png)
 
 The show version can be used to confirm the version:
 
@@ -96,7 +82,7 @@ Stop the container, make any changes to the network interaces as needed before r
 	app-hosting stop appid c9kwireshark
 	app-hosting deactivate appid c9kwireshark
 	app-hosting uninstall appid c9kwireshark 
-
+![cli-orchistration](./c9kwireshark-cli-orchistration.png)
 
 # 	6. Connect via RDP and run Wireshark
 
@@ -104,3 +90,4 @@ Opening a Remote Desktop session to 10.1.1.9, the Docker container on the Cataly
 
 The eth0, or “guest interface 0” has the IP address, while eth1, or “guest interface 1” is configured in mirroring mode as a trunk
 
+![rdp](c9kwireshark-rdp.png)
