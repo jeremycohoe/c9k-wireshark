@@ -12,6 +12,30 @@ Cisco Catalyst 9300 running IOS XE 17.1.1 with Docker AppHosting, using Remote D
 	SSD-120G USB Storage
 	IOS XE 17.1.1 Software
 	DNA Advantage License
+	
+The show inventory command can be used to confirm the hardware and SSD:
+	
+	C9300#show inventory
+	NAME: "c93xx Stack", DESCR: "c93xx Stack"
+	PID: C9300-24P         , VID: V02  , SN: FCW2241DHBN
+	
+	NAME: "Switch 1", DESCR: "C9300-24P"
+	PID: C9300-24P         , VID: V02  , SN: FCW2241DHBN
+	
+	NAME: "Switch 1 - Power Supply A", DESCR: "Switch 1 - Power Supply A"
+	PID: PWR-C1-715WAC     , VID: V02  , SN: DCA2232G1Y7
+	
+	NAME: "usbflash1", DESCR: "usbflash1-1"
+	PID: SSD-120G          , VID: STP230818QL, SN: V01
+
+The show version can be used to confirm the version:
+
+	C9300#show version
+	Cisco IOS XE Software, Version 17.01.01
+	Cisco IOS Software [Amsterdam], Catalyst L3 Switch Software (CAT9K_IOSXE), Version 17.1.1, RELEASE SOFTWARE (fc3)
+	Technical Support: http://www.cisco.com/techsupport
+	Copyright (c) 1986-2019 by Cisco Systems, Inc.
+	Compiled Fri 22-Nov-19 03:41 by mcpre
 
 # 	2. The Docker Container
 
@@ -31,7 +55,7 @@ Copy the c9kwireshark.tar to the Catalyst 9300 USB flash over the network using 
 
 
 
-# 	3. Configure Application Hosting Interface Ap1/0/1
+# 	3. Configure Application Hosting Interface: Ap1/0/1
 
 	interface AppGigabitEthernet1/0/1
 	 description Uplink to AppH
@@ -40,7 +64,7 @@ Copy the c9kwireshark.tar to the Catalyst 9300 USB flash over the network using 
 
 
 
-# 	4. Configure Application Hosting 
+# 	4. Configure Application Hosting App: c9kwireshark
 
 	app-hosting appid c9kwireshark
 	 app-vnic AppGigabitEthernet trunk
